@@ -1,0 +1,65 @@
+function right_button(index,number,symbol){
+    /* jquery call to get data and post to /save route  */
+    data = {'symbol': $("#model_symbol").text(),
+	    'datetime': $("#symbol_datetime").text(),
+	    'predicted_shape': $("#predicted_shape").text(),
+	    'shape_probability': parseFloat($("#shape_probability").text()),
+	    'marked_shape': $("#marked_shape").text(),
+	    'model_number': parseInt($("#model_number").text(),10)};
+
+    console.log(data);
+    var new_index = index-Math.round(number/2);
+    
+    $.ajax({
+	type: "POST",
+	url: "/save_marked",
+	data: data,
+	contentType: "application/json;charset=UTF-8",
+	data: JSON.stringify(data, null, '\t'),
+	success: function(response) {
+	    console.log(response);
+	    if (response.status == 'success') {
+		window.location.href = "/model/" + number + "/" + symbol + "?t=" + new_index;
+	    }
+	},
+	error: function(error) {
+	    console.log(error);
+	}
+    })
+}
+
+function left_button(index,number,symbol){
+    data = {'symbol': $("#model_symbol").text(),
+	    'datetime': $("#symbol_datetime").text(),
+	    'predicted_shape': $("#predicted_shape").text(),
+	    'shape_probability': parseFloat($("#shape_probability").text()),
+	    'marked_shape': $("#marked_shape").text(),
+	    'model_number': parseInt($("#model_number").text(),10)};
+
+    console.log(data);
+    var new_index = index-3*Math.round(number/2);
+    
+    $.ajax({
+	type: "POST",
+	url: "/save_marked",
+	data: data,
+	contentType: "application/json;charset=UTF-8",
+	data: JSON.stringify(data, null, '\t'),
+	success: function(response) {
+	    console.log(response);
+	    if (response.status == 'success') {
+		window.location.href = "/model/" + number + "/" + symbol + "?t=" + new_index;
+	    }
+	},
+	error: function(error) {
+	    console.log(error);
+	}
+    })
+}
+
+/* add shape to selected shape box*/
+$(document).ready(function(){
+  $("a").click(function(){
+    $("#marked_shape").text($(this).html());
+  });
+});
