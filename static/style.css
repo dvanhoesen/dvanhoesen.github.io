@@ -1,9 +1,14 @@
 body {
   background-color: white;
 }
+
 h1 {
   color: orange;
+  height:  100px;
+  line-height:  100px;
+  text-align: center;
 }
+
 p {
   color: white;
 }
