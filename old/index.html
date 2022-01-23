@@ -1,0 +1,69 @@
+<!HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main Page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body onload="change_color()">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="/static/web.js"></script> 
+  
+{% block content %}
+<header>
+</header>
+
+<section>
+  <div id="left_of_left">
+    <ul>
+	    <a href="https://www.youtube.com/watch?v=YWa6qtcNK_w">2D Bak Tang Wiesenfeld / Abelian Sandpile Model</a>
+        <p></p>
+        <a href="https://www.youtube.com/watch?v=2UKX2ZOZrV4">3D Bak Tang Wiesenfeld / Abelian Sandpile Model</a>
+	</ul>
+  </div>
+  
+  <div id="left">
+  </div>
+  
+  <center>
+    <div class="container" align="center">
+	    <p>Place Plot Here</p>
+    </div>
+    <img src="data:image/png;base64,{{ model_plot }}"/>
+  </center>
+  
+  <div id="right">
+	<button type="button">mouse mode</button>
+	<button type="button">key mode</button>
+	<p><br /></p>
+	<div class="dropdown">
+	  <button class="dropbtn">Select Option</button>
+      <div class="dropdown-content">
+        <a id=opt1 href="#">option 1</a>
+        <a id=opt2 href="#">option 2</a>
+        <a id=opt3 href="#">option 3</a>
+		<a id=opt4 href="#">option 4</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+</footer>
+{% endblock %}
+
+
+</body>
+</html>
