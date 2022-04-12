@@ -4,8 +4,8 @@ body {
 
 h1 {
   color: orange;
-  height:  300px;
-  line-height:  300px;
+  /*height:  300px;
+  line-height:  300px;*/
   text-align: center;
   font-size: 20vw;
 }
