@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+//import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
 const canvasWidth = 800
 const canvasHeight = 800
@@ -112,7 +112,7 @@ export default function Abelian() {
   });
 
   // Time series of average grid value per step
-  const [series, setSeries] = useState<Array<{ step: number; avg: number }>>([]);
+  //const [series, setSeries] = useState<Array<{ step: number; avg: number }>>([]);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -135,7 +135,7 @@ export default function Abelian() {
   const reset = () => {
     setGrid(initGrid(N, initMode));
     setStats({ steps: 0, totalTopples: 0, totalGrainsLost: 0, lastTopples: 0, lastCells: 0, lastLost: 0 });
-    setSeries([]);
+    //setSeries([]);
   };
 
   useEffect(() => {
@@ -161,7 +161,7 @@ export default function Abelian() {
         lastLost: grainsLost,
       }));
 
-
+      /*
       // Compute average height and append to time series
       let sum = 0;
       for (let i = 0; i < next.length; i++) sum += next[i];
@@ -171,6 +171,7 @@ export default function Abelian() {
         const updated = [...arr, { step, avg }];
         return updated.length > 2000 ? updated.slice(updated.length - 2000) : updated;
       });
+      */
 
 
       return next;
